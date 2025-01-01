@@ -14,7 +14,6 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        select: false,
     },
 });
 
@@ -27,7 +26,7 @@ userSchema.methods.isValidPassword = async function (password) {
 };
 
 userSchema.methods.generateToken = function () {
-    return jwt.sign({ email: this.email }, process.env.JWT_SECRET);
+    return jwt.sign({ email: this.email }, process.env.JWT_SECRET, { expiresIn: '24h' });
 }
 
 const User = mongoose.model('user', userSchema);
