@@ -19,3 +19,17 @@ export const createUserController = async (req, res) => {
         res.status(400).send(error.message);
     }
 }
+
+export const loginController = async (req, res) => {
+    const errors = validationResult(req);
+
+    if(!errors.isEmpty()){
+        return res.status(400).json({ errors: errors.array() });
+    }
+
+    try{
+
+    }catch(err){
+        res.status(400).send(err.message);
+    }
+}
