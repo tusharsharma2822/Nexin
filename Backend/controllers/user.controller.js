@@ -1,6 +1,7 @@
 import userModel from '../models/user.model.js';
 import * as userService from '../services/user.service.js';
 import { validationResult } from 'express-validator';
+import redisClient from '../services/redis.service.js';
 
 export const createUserController = async (req, res) => {
     const errors = validationResult(req);
@@ -55,7 +56,9 @@ export const loginUserController = async (req, res) => {
 }
 
 export const profileController = async (req, res) => {
+
     res.status(200).json({
         user: req.user
     });
+
 }
