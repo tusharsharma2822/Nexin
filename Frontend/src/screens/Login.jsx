@@ -12,7 +12,7 @@ const Login = () => {
 
   function submitHandler(e) {
     e.preventDefault()
-    axios.post('/login', {
+    axios.post('/users/login', {
       email,
       password
     }).then((res) => {
@@ -56,7 +56,7 @@ const Login = () => {
           </button>
         </form>
         <div className="mt-6 text-center">
-          <p className="text-gray-400">Don't have an account? <Link to="/register" className="text-blue-500 hover:underline">Create one</Link></p>
+          <p className="text-gray-400">Don&apos;t have an account? <Link to="/register" className="text-blue-500 hover:underline">Create one</Link></p>
         </div>
       </div>
     </div>
