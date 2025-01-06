@@ -41,22 +41,6 @@ Follow these steps to set up and run the project locally:
     npm start
     ```
 
-### Frontend
-1. **Navigate to the Frontend directory**:
-    ```bash
-    cd ../Frontend
-    ```
-
-2. **Install dependencies**:
-    ```bash
-    npm install
-    ```
-
-3. **Run the application**:
-    ```bash
-    npm start
-    ```
-
 ## Usage
 1. **Register a new user**:
     - Send a POST request to `/users/register` with [email](http://_vscodecontentref_/1) and [password](http://_vscodecontentref_/2) in the body.
@@ -71,7 +55,7 @@ Follow these steps to set up and run the project locally:
 - **Backend**
   - [server.js](http://_vscodecontentref_/5): Entry point for the backend server.
   - [app.js](http://_vscodecontentref_/6): Express application setup.
-  - `db/db.js`: Database connection setup.
+  - [db.js]: Database connection setup.
   - [user.model.js](http://_vscodecontentref_/7): Mongoose schema and model for user.
   - [redis.service.js](http://_vscodecontentref_/8): Redis client setup.
   - [user.service.js](http://_vscodecontentref_/9): User-related business logic.
