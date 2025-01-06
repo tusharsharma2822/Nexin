@@ -1,9 +1,11 @@
-import React from 'react'
+import { UserProvider } from './context/user.context'
 import AppRoutes from './Routes/AppRoutes'
 
 const App = () => {
   return (
-    <AppRoutes />
+    <UserProvider>
+      <AppRoutes />
+    </UserProvider>
   )
 }
 
