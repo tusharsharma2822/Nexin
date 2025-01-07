@@ -6,7 +6,7 @@ const projectSchema = new mongoose.Schema({
         lowercase: true,
         required: true,
         trim: true,
-        unique: true
+        unique: [true, 'Project Name must be unique']
     },
 
     users: [
