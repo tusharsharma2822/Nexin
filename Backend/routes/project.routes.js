@@ -11,4 +11,10 @@ router.post('/create',
     projectController.createProjectController
 );
 
+router.get('/all', 
+    authMiddleWare.authUser,
+    projectController.getAllProject
+)
+ 
+
 export default router;
