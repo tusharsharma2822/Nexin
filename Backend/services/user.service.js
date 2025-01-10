@@ -14,3 +14,7 @@ export const createUser = async ({email,password}) => {
 
     return user;
 }
+
+export const getAllUser = async ({}) => {
+    
+}
