@@ -10,7 +10,7 @@ const Home = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [projectName, setprojectName] = useState(null)
-  const [project, setProject] = useState([])
+  const [project, setproject] = useState([])
 
   function createProject(e) {
     e.preventDefault()
@@ -28,12 +28,12 @@ const Home = () => {
 
   useEffect(() => {
     axios.get('/projects/all').then((res) => {
-      console.log(res.data);
-      setProject(res.data.projects)
-    }).catch(error =>{
-      console.log(error)
-    }) 
-  }, [])
+      console.log(res.data)
+    }).catch(err => {
+      console.log(err);
+    })
+      
+  },[])
 
   return (
     <main className='p-4'>
