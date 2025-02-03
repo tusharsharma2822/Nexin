@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { UserContext } from '../context/user.context';
 import axios from '../config/axios';
 
 
@@ -10,6 +11,8 @@ const Register = () => {
 
   const navigate = useNavigate();
 
+  const { setUser } = useContext(UserContext)
+
   function submitHandler(e) {
 
     e.preventDefault();
@@ -19,6 +22,8 @@ const Register = () => {
       password
     }).then((res) => {
       console.log(res.data);
+      localStorage.setItem('token', res.data.token);
+      setUser(res.data.user)
       navigate('/')
     }).catch((err) => {
       console.log(err.response.data)
