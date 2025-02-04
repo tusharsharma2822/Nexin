@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import connectToDB from "./db/db.js";
-import userRoutes from './routes/user.route.js'
+import userRoutes from './routes/user.routes.js'
 import cookieParser from 'cookie-parser';
 
 connectToDB();
