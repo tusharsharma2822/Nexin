@@ -1,4 +1,3 @@
-
 ## Nexin Project Backend Documentation
 
 ### 1. Register User
@@ -160,5 +159,154 @@
     ```json
     {
       "message": "Error message"
+    }
+    ```
+
+## Project Routes Documentation
+
+### 1. Create Project
+- **URL:** `/create`
+- **Method:** `POST`
+- **Headers:**
+  - `Authorization`: Bearer `jwt_token`
+- **Body Parameters:**
+  - `name` (string, required): Project name.
+- **Example Request:**
+  ```json
+  {
+    "name": "New Project"
+  }
+  ```
+- **Success Response:**
+  - **Code:** 201
+  - **Content:**
+    ```json
+    {
+      "_id": "project_id",
+      "name": "New Project",
+      "users": ["user_id"]
+      // ...other project fields...
+    }
+    ```
+- **Error Response:**
+  - **Code:** 400
+  - **Content:**
+    ```json
+    {
+      "errors": [
+        {
+          "msg": "Name is required",
+          "param": "name",
+          "location": "body"
+        }
+      ]
+    }
+    ```
+
+### 2. Get All Projects
+- **URL:** `/all`
+- **Method:** `GET`
+- **Headers:**
+  - `Authorization`: Bearer `jwt_token`
+- **Success Response:**
+  - **Code:** 200
+  - **Content:**
+    ```json
+    {
+      "projects": [
+        {
+          "_id": "project_id_1",
+          "name": "Project 1",
+          "users": ["user_id"]
+          // ...other project fields...
+        },
+        {
+          "_id": "project_id_2",
+          "name": "Project 2",
+          "users": ["user_id"]
+          // ...other project fields...
+        }
+      ]
+    }
+    ```
+- **Error Response:**
+  - **Code:** 401
+  - **Content:**
+    ```json
+    {
+      "message": "Unauthorized"
+    }
+    ```
+
+### 3. Add Users to Project
+- **URL:** `/add-user`
+- **Method:** `PUT`
+- **Headers:**
+  - `Authorization`: Bearer `jwt_token`
+- **Body Parameters:**
+  - `projectId` (string, required): Project ID.
+  - `users` (array of strings, required): Array of user IDs.
+- **Example Request:**
+  ```json
+  {
+    "projectId": "project_id",
+    "users": ["user_id_1", "user_id_2"]
+  }
+  ```
+- **Success Response:**
+  - **Code:** 200
+  - **Content:**
+    ```json
+    {
+      "_id": "project_id",
+      "name": "Project Name",
+      "users": ["user_id_1", "user_id_2"]
+      // ...other project fields...
+    }
+    ```
+- **Error Response:**
+  - **Code:** 400
+  - **Content:**
+    ```json
+    {
+      "errors": [
+        {
+          "msg": "Project ID is required",
+          "param": "projectId",
+          "location": "body"
+        },
+        {
+          "msg": "Users must be an array with at least one user",
+          "param": "users",
+          "location": "body"
+        }
+      ]
+    }
+    ```
+
+### 4. Get Project by ID
+- **URL:** `/get-project/:projectId`
+- **Method:** `GET`
+- **Headers:**
+  - `Authorization`: Bearer `jwt_token`
+- **Success Response:**
+  - **Code:** 200
+  - **Content:**
+    ```json
+    {
+      "project": {
+        "_id": "project_id",
+        "name": "Project Name",
+        "users": ["user_id"]
+        // ...other project fields...
+      }
+    }
+    ```
+- **Error Response:**
+  - **Code:** 400
+  - **Content:**
+    ```json
+    {
+      "message": "Invalid Project"
     }
     ```
