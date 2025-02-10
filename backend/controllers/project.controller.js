@@ -94,4 +94,5 @@ export const getProjectById = async (req, res) => {
       error: err.message
     })
   }
-}
+};
+
