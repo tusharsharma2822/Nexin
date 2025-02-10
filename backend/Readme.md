@@ -1,5 +1,7 @@
 ## Nexin Project Backend Documentation
 
+## User Routes Documentation
+
 ### 1. Register User
 - **URL:** `/register`
 - **Method:** `POST`
